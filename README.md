@@ -1,10 +1,14 @@
 # BOSCH GLM rangefinder
 
-Python3 script to remote control a BOSCH GLM 100C or GLM 50C rangefinder.
+**This is a fork of https://github.com/philipptrenz/BOSCH-GLM-rangefinder which controls BOSCH GLM 100C/50C.**
 
-This script provides remote control features for the BOSCH GLM 100C/50C measuring device via its Bluetooth serial interface. The device uses the transfer protocol as described [in this blog post](https://www.eevblog.com/forum/projects/hacking-the-bosch-glm-20-laser-measuring-tape/msg1331649/#msg1331649).
+Python3 script to remote control a BOSCH PLR50C rangefinder.
 
-As the protocol seems to be identical for various Bosch measuring devices this script could also work for Bluetooth enabled rangefinders like PLR30C, PLR40C or PLR50C. If so please let me know!
+This script provides remote control features for the BOSCH PLR50C  measuring device via its Bluetooth serial interface. The device uses the transfer protocol as described [in this blog post](https://www.eevblog.com/forum/projects/hacking-the-bosch-glm-20-laser-measuring-tape/msg1331649/#msg1331649).
+
+As the protocol seems to be identical for various Bosch measuring devices this script could also work for Bluetooth enabled rangefinders like BOSCH GLM 100C/50C, PLR30C, PLR40C or PLR50C. If so please let me know!
+
+Here is also some interesting code: https://github.com/piannucci/pymtprotocol
 
 ## Features
 

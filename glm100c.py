@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 """
-Connect and control a BOSCH GLM100C laser range finder via Bluetooth
+Connect and control a BOSCH PLR50C laser range finder via Bluetooth
 May be adaptable for similar Bluetooth enabled BOSCH measuring devices, like GLM50C, PLR30C, PLR40C or PLR50C
 
-Author: Philipp Trenz
+Author: Philipp Trenz, Albrecht Lohofener
 """
 import os
 import bluetooth # install pybluez
@@ -65,6 +65,7 @@ class GLM(object):
         nearby_devices = bluetooth.discover_devices(duration=8, lookup_names=True, flush_cache=True, lookup_class=False)
         for index, val in enumerate(nearby_devices):
             addr, name = val
+            print('Found device ' + name.upper())
             if dev in name.upper():
                 self.bluetooth_address = addr
                 print('Found BOSCH ' + dev + ' @', self.bluetooth_address)
@@ -154,20 +155,25 @@ class GLM100C(GLM):
         self.port = 0x0001
         super().__init__()
 
+class PLR50C(GLM):
+    def __init__(self):
+        self.port = 0x0005
+        super().__init__()
 
 if __name__ == "__main__":
 
     # Add argparse in a future.
     try:
-        device = GLM100C()
+       device = PLR50C()
     except:
-        print('No devices GLM100C found')
+       print('No devices PLR50C found')
+       os.sys.exit()
 
-    try:
-        device = GLM50C()
-    except:
-        print('No devices GLM50C found')
-        os.sys.exit()
+    #try:
+    #    device = GLM50C()
+    #except:
+    #    print('No devices GLM50C found')
+    #    os.sys.exit()
 
     # connecting can be speeded up when the mac address of the device is known, e.g.:
     # device = GLM100C(bluetooth_address='54:6C:0E:29:92:2F')
